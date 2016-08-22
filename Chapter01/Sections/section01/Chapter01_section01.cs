@@ -10,9 +10,9 @@ namespace Algorithm.Chapter01.Sections
     {
         int intCount = 0;
 
-        tagNode List    = null;
-        tagNode Current = null;
-        tagNode NewNode = null;
+        section01.LinkedList.tagNode head    = null;
+        section01.LinkedList.tagNode Current = null;
+        section01.LinkedList.tagNode tail    = null;
 
         public Chapter01_section01() { }
 
@@ -70,14 +70,5 @@ namespace Algorithm.Chapter01.Sections
                     break;
             }
         }
-
-        // 1. 포인터 노트 클래스
-        public class tagNode
-        {
-            public int Data;
-            public tagNode NextNode;
-        }
-
-        // 2. 노드 생성
     }
 }
