@@ -3,3 +3,4 @@ G:\Algorithm\Algorithm\bin\Debug\Algorithm.exe
 G:\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
 G:\Algorithm\Algorithm\obj\Debug\Algorithm.exe
 G:\Algorithm\Algorithm\obj\Debug\Algorithm.pdb
+G:\Algorithm\Algorithm\obj\Debug\Algorithm.csprojResolveAssemblyReference.cache

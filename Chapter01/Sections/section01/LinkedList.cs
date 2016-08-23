@@ -10,17 +10,10 @@ namespace Algorithm.Chapter01.Sections.section01
     {
         public LinkedList() { }
 
-        // 1. 포인터 노트 클래스
-        public class tagNode
-        {
-            public int Data;
-            public tagNode NextNode;
-        }
-
         // 2. 노드 생성
-        public tagNode SLL_CreateNode(int newData)
+        public Sections.Chapter01_section01.tagNode SLL_CreateNode(int newData)
         {
-            tagNode _newNode = new tagNode();
+            Sections.Chapter01_section01.tagNode _newNode = new Sections.Chapter01_section01.tagNode();
             _newNode.Data     = newData; // 데이터 저장
             _newNode.NextNode = null;    // 다음 노드에 대한 포인터는 null
 
@@ -28,37 +21,49 @@ namespace Algorithm.Chapter01.Sections.section01
         }
 
         // 3. 노드 소멸
-        public void SLL_DestroyNode(tagNode node)
+        public void SLL_DestroyNode(Sections.Chapter01_section01.tagNode node)
         {
             node = null;
         }
 
-        // 4. 노드 추가
-        public void SLL_AppendNode(tagNode head, tagNode tail, tagNode current, tagNode newNode)
+        // 5. 노드 탐색
+        public Sections.Chapter01_section01.tagNode SLL_GetNodeAt(Sections.Chapter01_section01.tagNode head, int intLocation)
         {
-            // head 노드가 null 이면 새로운 노드가 head & tail
-            if(head == null)
+            Sections.Chapter01_section01.tagNode current = head;
+
+            if(intLocation.Equals(0))
             {
-                head    = newNode;
-                current = newNode;
-                tail    = newNode;
+                return head;
             }
             else
             {
-                tagNode curTail = new tagNode();
-                curTail = tail;
-                curTail.NextNode = newNode; // 현재 tail의 next node 가 newnode
-                tail = newNode;             // newnode 가 새로운 tail 이 됨
+                for(int i = 0; i < intLocation; i++)
+                {
+                    current = current.NextNode;
+                }
             }
+
+            //while(current != null && (intLocation--) >= 1)
+            //{
+            //    current = current.NextNode;
+            //}
+
+            return current;
         }
 
-        // 5. 노드 삽입
-        public void SLL_InsesrtAfter(tagNode current, tagNode newNode)
+        // 6. 노드 수 세기
+        public int SLL_GetNodeCount(Sections.Chapter01_section01.tagNode head)
         {
-            newNode.NextNode = current.NextNode;
-            current.NextNode = newNode;
-        }
+            int intCount = 0;
+            Sections.Chapter01_section01.tagNode current = head;
 
-        
+            while (current != null)
+            {
+                current = current.NextNode;
+                intCount++;
+            }
+
+            return intCount;
+        }
     }
 }
