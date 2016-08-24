@@ -44,6 +44,7 @@
     <Compile Include="Chapter01\Chapter01_Index.cs" />
     <Compile Include="Chapter01\Sections\section01\Chapter01_section01.cs" />
     <Compile Include="Chapter01\Sections\section01\LinkedList.cs" />
+    <Compile Include="Chapter01\Sections\section02\Chapter01_section02.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
