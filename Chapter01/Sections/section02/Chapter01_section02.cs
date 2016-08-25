@@ -37,6 +37,7 @@ namespace Algorithm.Chapter01.Sections.section02
             Console.WriteLine("4. 모든 노드 제거");
             Console.WriteLine("5. 역순 출력 ");
             Console.WriteLine("6. 뒤로");
+            Console.WriteLine("7. 종료");
             Console.WriteLine("---------------------------");
             Console.Write("인덱스 입력 >> ");
 
@@ -67,6 +68,9 @@ namespace Algorithm.Chapter01.Sections.section02
                 case "6" :
                     Chapter01.Chapter01_Index _chapter01Index = new Chapter01_Index();
                     _chapter01Index.Chapter01_Progress();
+                    break;
+                case "7" :
+                    Environment.Exit(0);
                     break;
                 default :
                     break;

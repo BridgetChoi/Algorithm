@@ -46,6 +46,8 @@ namespace Algorithm.Chapter01
                     _section02.Chapter01_section02_Progress();
                     break;
                 case "3" :
+                    Sections.section03.Chapter01_section03 _section03 = new Sections.section03.Chapter01_section03();
+                    _section03.Chapter01_section03_Progress();
                     break;
                 case "4" :
                     Program.mainProgress();

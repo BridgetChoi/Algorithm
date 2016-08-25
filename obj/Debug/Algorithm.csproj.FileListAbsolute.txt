@@ -4,3 +4,9 @@ G:\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
 G:\Algorithm\Algorithm\obj\Debug\Algorithm.exe
 G:\Algorithm\Algorithm\obj\Debug\Algorithm.pdb
 G:\Algorithm\Algorithm\obj\Debug\Algorithm.csprojResolveAssemblyReference.cache
+D:\hgchoi_Algorithm\bin\Debug\Algorithm.exe.config
+D:\hgchoi_Algorithm\bin\Debug\Algorithm.exe
+D:\hgchoi_Algorithm\bin\Debug\Algorithm.pdb
+D:\hgchoi_Algorithm\obj\Debug\Algorithm.exe
+D:\hgchoi_Algorithm\obj\Debug\Algorithm.pdb
+D:\hgchoi_Algorithm\obj\Debug\Algorithm.csprojResolveAssemblyReference.cache
