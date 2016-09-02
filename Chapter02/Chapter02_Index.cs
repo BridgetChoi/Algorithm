@@ -23,6 +23,7 @@ namespace Algorithm.Chapter02
             Console.WriteLine("[ CHAPTER 02 ]");
             Console.WriteLine("1. 배열 스택");
             Console.WriteLine("2. Linked List 스택");
+            Console.WriteLine("3. 사칙 연산 계산 : 후위 표기식");
             Console.WriteLine("4. 뒤로");
             Console.WriteLine("5. 종료");
             Console.WriteLine("----------------------------");
@@ -44,6 +45,10 @@ namespace Algorithm.Chapter02
                 case "2" :
                     Sections.section04.Chapter02_section04 _section04 = new Sections.section04.Chapter02_section04();
                     _section04.Chapter02_section04_Progress();
+                    break;
+                case "3" :
+                    Sections.section05.Chapter02_section05 _section05 = new Sections.section05.Chapter02_section05();
+                    _section05.Chapter02_section05_Progress();
                     break;
                 case "4" :
                     Program.mainProgress();
