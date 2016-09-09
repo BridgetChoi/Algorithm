@@ -30,13 +30,6 @@ namespace Algorithm.Chapter02.Sections.section05
         private symbolTagNode HeadSymbol = null;
         private symbolTagNode TailSymbol = null;
 
-        private string LEFT_PARENTHESIS  = "(";
-        private string RIGHT_PARENTHESIS = ")";
-        private string PLUS              = "+";
-        private string MINUS             = "-";
-        private string MULTIPLY          = "*";
-        private string DIVIDE            = "/";
-
         private char[] arrExpressionSplit = null;
 
         public Chapter02_section05() { }
@@ -57,6 +50,15 @@ namespace Algorithm.Chapter02.Sections.section05
             strExpression = Regex.Replace(strExpression, @"\s+", "");
             // character 단위로 한글자씩 쪼갬
             arrExpressionSplit = strExpression.ToCharArray();
+
+            CreatePostFixExpression(arrExpressionSplit);
+
+            PrintPostFixExpression();
+            PrintSymbol();
+
+            Console.WriteLine();
+            Console.Write("enter to exit");
+            Console.ReadLine();
 
             //for(int i = 0; i < 5; i++)
             //{
@@ -80,7 +82,130 @@ namespace Algorithm.Chapter02.Sections.section05
         }
 
         #region Create Post Fix Expresison
+        private void CreatePostFixExpression(char[] _arrExpressionSplit)
+        {
+            int intLenght = _arrExpressionSplit.Length;
+            string strValue = string.Empty;
+
+            for(int i = 0; i < intLenght; i++)
+            {
+                switch(_arrExpressionSplit[i].ToString())
+                {
+                    case "(" :
+                        InsertPostFixNode(strValue);
+                        strValue = string.Empty;
+                        CheckSymbolTail();
+                        InsertSymbolNode("(");
+                        continue;
+                        break;
+                    case ")" :
+                        InsertPostFixNode(strValue);
+                        strValue = string.Empty;
+                        SetParenThesis();
+                        continue;
+                        break;
+                    case "+" :
+                        InsertPostFixNode(strValue);
+                        strValue = string.Empty;
+                        CheckSymbolTail();
+                        InsertSymbolNode("+");
+                        continue;
+                        break;
+                    case "-" :
+                        InsertPostFixNode(strValue);
+                        strValue = string.Empty;
+                        CheckSymbolTail();
+                        InsertSymbolNode("-");
+                        continue;
+                        break;
+                    case "*" :
+                        InsertPostFixNode(strValue);
+                        strValue = string.Empty;
+                        CheckSymbolTail();
+                        InsertSymbolNode("*");
+                        continue;
+                        break;
+                    case "/" :
+                        InsertPostFixNode(strValue);
+                        strValue = string.Empty;
+                        CheckSymbolTail();
+                        InsertSymbolNode("/");
+                        continue;
+                        break;
+                    default :
+                        strValue += _arrExpressionSplit[i].ToString();
+                        break;
+                }
+
+                if (i.Equals(intLenght - 1) && !string.IsNullOrEmpty(strValue))
+                {
+                    InsertPostFixNode(strValue);
+                }
+            }
+        }
         #endregion Create Post Fix Expresison
+
+        #region Manage Expression
+        private void InsertPostFixNode(string strPostFix)
+        {
+            if (string.IsNullOrEmpty(strPostFix)) return;
+            // 새 노드 생성
+            postfixTagNode _newPostFixNode = CreatePostFixNode(strPostFix);
+            // 노드 Push
+            pushPostFix(_newPostFixNode);
+        }
+        #endregion Manage Expression
+
+        #region Manage Symbol
+        private void InsertSymbolNode(string strSymbol)
+        {
+            // 새 노드 생성
+            symbolTagNode _newSymboleNode = CreateSymbolNode(strSymbol);
+            // 노드 Push
+            pushSymbolNode(_newSymboleNode);
+        }
+
+        private void SetParenThesis()
+        {
+            while(true)
+            {
+                string strTempNode = PopSymbolNode();
+
+                if (strTempNode.Equals("("))
+                {
+                    break;
+                }
+
+                InsertPostFixNode(strTempNode);
+            }
+        }
+        // *, / 검사
+        private void CheckSymbolTail()
+        {
+            string strTailSymData = string.Empty;
+            if(HeadSymbol == null)
+            {
+                return;
+            }
+            else if(TailSymbol == null)
+            {
+                if(HeadSymbol != null)
+                {
+                    strTailSymData = HeadSymbol.strData;
+                }
+            }
+            else
+            {
+                strTailSymData = TailSymbol.strData;
+            }
+
+            if (strTailSymData.Equals("*") || strTailSymData.Equals("/"))
+            {
+                string strTempNode = PopSymbolNode();
+                InsertPostFixNode(strTempNode);
+            }
+        }
+        #endregion Manage Symbol
 
         #region Create New Node
         private postfixTagNode CreatePostFixNode(string strData)
@@ -217,5 +342,27 @@ namespace Algorithm.Chapter02.Sections.section05
             return strReturn;
         }
         #endregion Pop node
+
+        #region Print Node
+        private void PrintPostFixExpression()
+        {
+            postfixTagNode _curr = HeadPostFix;
+            while(_curr != null)
+            {
+                Console.Write(_curr.strData);
+                _curr = _curr.NextNode;
+            }
+        }
+
+        private void PrintSymbol()
+        {
+            symbolTagNode _curr = HeadSymbol;
+            while (_curr != null)
+            {
+                Console.Write(_curr.strData);
+                _curr = _curr.NextNode;
+            }
+        }
+        #endregion Print Node
     }
 }
