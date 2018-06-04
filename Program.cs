@@ -65,6 +65,8 @@ namespace Algorithm
                     _objChapter02.Chapter02_Progress();
                     break;
                 case "3":
+                    Algorithm.Chapter03.Chapter03_Index _objChapter03 = new Chapter03.Chapter03_Index();
+                    _objChapter03.Chapter03_Progress();
                     break;
                 case "4":
                     break;
