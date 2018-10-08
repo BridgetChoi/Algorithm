@@ -22,7 +22,7 @@ namespace Algorithm.Chapter03.Sections.section03
             public tagNode Rear;
             public int Count;
 
-            ~tagLinkedQueue() { };
+            ~tagLinkedQueue() { }
         }
 
         private tagLinkedQueue _tagLinkedQueue = null;

@@ -69,6 +69,8 @@ namespace Algorithm
                     _objChapter03.Chapter03_Progress();
                     break;
                 case "4":
+                    Algorithm.Chapter04.Tree _objChapter04 = new Chapter04.Tree();
+                    _objChapter04.TreeProgress();
                     break;
                 case "5":
                     break;
