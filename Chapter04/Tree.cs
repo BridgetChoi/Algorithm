@@ -23,6 +23,7 @@ namespace Algorithm.Chapter04
 
             Console.WriteLine("[ CHAPTER 04 ]");
             Console.WriteLine("1. LeftChlidRightSibling 트리 ");
+            Console.WriteLine("2. BinaryTree 트리 ");
             Console.WriteLine("뒤로");
             Console.WriteLine("종료");
             Console.WriteLine("----------------------------");
@@ -39,8 +40,12 @@ namespace Algorithm.Chapter04
                 case "1":
                     Sections.section01.LeftChildRightSibling _objLeftChildRightSibling = new Sections.section01.LeftChildRightSibling();
                     _objLeftChildRightSibling.LeftChildRightSiblingProgress();
+                    Chapter04Index();
                     break;
                 case "2":
+                    Sections.section02.SimpleBinaryTree _objSimpleBinayTree = new Sections.section02.SimpleBinaryTree();
+                    _objSimpleBinayTree.SimpleBinaryTreeProcess();
+                    Chapter04Index();
                     break;
                 case "9":
                     Program.mainProgress();
