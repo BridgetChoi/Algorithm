@@ -25,8 +25,9 @@ namespace Algorithm.Chapter04
             Console.WriteLine("1. LeftChlidRightSibling 트리 ");
             Console.WriteLine("2. BinaryTree 트리 ");
             Console.WriteLine("3. 수식 트리 ");
-            Console.WriteLine("뒤로");
-            Console.WriteLine("종료");
+            Console.WriteLine("4. 분리 집합 ");
+            Console.WriteLine("5. 뒤로");
+            Console.WriteLine("6. 종료");
             Console.WriteLine("----------------------------");
             Console.Write("인덱스 입력 >> ");
 
@@ -53,10 +54,15 @@ namespace Algorithm.Chapter04
                     _objExpressionTree.ExpresstionTreeProcess();
                     Chapter04Index();
                     break;
-                case "9":
+                case "4":
+                    Sections.section04.DisJointSet _objDisJointSet = new Sections.section04.DisJointSet();
+                    _objDisJointSet.DisJointSetProcess();
+                    Chapter04Index();
+                    break;
+                case "5":
                     Program.mainProgress();
                     break;
-                case "10":
+                case "6":
                     Environment.Exit(0);
                     break;
                 default:
