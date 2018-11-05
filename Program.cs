@@ -73,6 +73,8 @@ namespace Algorithm
                     _objChapter04.TreeProgress();
                     break;
                 case "5":
+                    Algorithm.Chapter05.Sort.Sort _objSort = new Chapter05.Sort.Sort();
+                    _objSort.SortProgress();
                     break;
                 case "6":
                     break;
