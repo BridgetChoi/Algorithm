@@ -45,7 +45,7 @@ namespace Algorithm.Chapter05.Sort
                     SortIndex();
                     break;
                 case "2":
-                    Sections.section03.InsertSort _objInsertSort = new Sections.section03.InsertSort();
+                    Sections.section_03.InsertSort _objInsertSort = new Sections.section_03.InsertSort();
                     _objInsertSort.InsertSortProgress();
                     SortIndex();
                     break;
