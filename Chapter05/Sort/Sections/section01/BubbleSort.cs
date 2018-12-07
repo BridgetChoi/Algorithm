@@ -10,7 +10,7 @@ namespace Algorithm.Chapter05.Sort.Sections.section01
     {
         public void BubbleSortProgress()
         {
-            int[] arrDataSet = new int[] { 6, 4, 2, 3, 1, 5 };
+            int[] arrDataSet = new int[] { 1,2,3,4,5,6 };
             int intLength = arrDataSet.Length;
             int[] arrResult = BubbleSorting(arrDataSet, intLength);
 
@@ -37,6 +37,8 @@ namespace Algorithm.Chapter05.Sort.Sections.section01
             int j = 0;
             int temp = 0;
 
+            int intBreakCnt = 0;
+
             for(i = 0; i < intLength-1; i++)
             {
                 for(j = 0; j < intLength - (i+1); j++)
@@ -47,6 +49,16 @@ namespace Algorithm.Chapter05.Sort.Sections.section01
                         arrDataSet[j + 1] = arrDataSet[j];
                         arrDataSet[j]     = temp;
                     }
+                    else if(i == 0 && arrDataSet[j] <= arrDataSet[j+1])
+                    {
+                        intBreakCnt++;
+                    }
+                }
+
+                if(i == 0 && intBreakCnt == intLength-(i+1))
+                {
+                    Console.WriteLine("Do not neet to be sorted.");
+                    break;
                 }
             }
 
