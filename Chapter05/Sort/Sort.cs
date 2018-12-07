@@ -24,7 +24,7 @@ namespace Algorithm.Chapter05.Sort
             Console.WriteLine("[ CHAPTER 05 ]");
             Console.WriteLine("1. Bubble Sort ");
             Console.WriteLine("2. Insert Sort (삽입정렬) ");
-            Console.WriteLine("3. 수식 트리 ");
+            Console.WriteLine("3. Quick Sort ");
             Console.WriteLine("4. 분리 집합 ");
             Console.WriteLine("5. 뒤로");
             Console.WriteLine("6. 종료");
@@ -50,6 +50,9 @@ namespace Algorithm.Chapter05.Sort
                     SortIndex();
                     break;
                 case "3":
+                    Sections.section04.QuickSort _objQuickSort = new Sections.section04.QuickSort();
+                    _objQuickSort.QuickSortProgress();
+                    SortIndex();
                     break;
                 case "4":
                     break;
