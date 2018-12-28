@@ -77,6 +77,8 @@ namespace Algorithm
                     _objSort.SortProgress();
                     break;
                 case "6":
+                    Algorithm.Chapter06.Search.Search objSearch = new Chapter06.Search.Search();
+                    objSearch.SearchProcess();
                     break;
                 case "7":
                     break;
