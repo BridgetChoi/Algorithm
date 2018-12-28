@@ -25,7 +25,7 @@ namespace Algorithm.Chapter05.Sort
             Console.WriteLine("1. Bubble Sort ");
             Console.WriteLine("2. Insert Sort (삽입정렬) ");
             Console.WriteLine("3. Quick Sort ");
-            Console.WriteLine("4. 분리 집합 ");
+            Console.WriteLine("4. Insert Sort with Double LinkedList ");
             Console.WriteLine("5. 뒤로");
             Console.WriteLine("6. 종료");
             Console.WriteLine("----------------------------");
@@ -55,6 +55,9 @@ namespace Algorithm.Chapter05.Sort
                     SortIndex();
                     break;
                 case "4":
+                    Sections.section_03.InsertSortDoubleLinkedList _objInsertSortLinked = new Sections.section_03.InsertSortDoubleLinkedList();
+                    _objInsertSortLinked.InsertSortLinkedListProgress();
+                    SortIndex();
                     break;
                 case "5":
                     Program.mainProgress();
