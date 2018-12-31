@@ -16,12 +16,20 @@ namespace Algorithm.Chapter06.Search
 
         public void SequentialSearchProgress()
         {
+            Console.WriteLine("< DataSet before Sequential Search >");
             Node objMoveToFrontDataSet = CreateNodes();
             PrintNode(objMoveToFrontDataSet);
 
-            Console.WriteLine("After Sequential Search..");
+            Console.WriteLine("After Sequential Search > Move to front..");
             MoveToFront(ref objMoveToFrontDataSet, 48);
             PrintNode(objMoveToFrontDataSet);
+            Console.WriteLine();
+
+            Node objTransposeDataSet = CreateNodes();
+            Console.WriteLine("After Sequential Search > Transpose..");
+            Transpose(ref objTransposeDataSet, 48);
+            PrintNode(objTransposeDataSet);
+            Console.WriteLine();
 
             string strKeep = "N";
             Console.WriteLine();
@@ -85,6 +93,47 @@ namespace Algorithm.Chapter06.Search
                 {
                     objPrevious = objCurrent;
                     objCurrent  = objCurrent.objNext;
+                }
+            }
+
+            return objMatch;
+        }
+
+        private Node Transpose(ref Node objHead, int intTarget)
+        {
+            Node objCurrnet   = objHead;
+            Node objPPrevious = null;
+            Node objPrevious  = null;
+            Node objMatch     = null;
+
+            while(objCurrnet != null)
+            {
+                if(objCurrnet.intData == intTarget)
+                {
+                    objMatch = objCurrnet;
+                    if(objPrevious != null)
+                    {
+                        if(objPPrevious != null)
+                        {
+                            objPPrevious.objNext = objCurrnet;   
+                        }
+                        else
+                        {
+                            objHead = objCurrnet;
+                        }
+                        objPrevious.objNext = objCurrnet.objNext;
+                        objCurrnet.objNext  = objPrevious;
+                    }
+                    break;
+                }
+                else
+                {
+                    if(objPrevious != null)
+                    {
+                        objPPrevious = objPrevious;
+                    }
+                    objPrevious = objCurrnet;
+                    objCurrnet  = objCurrnet.objNext;
                 }
             }
 
