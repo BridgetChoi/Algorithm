@@ -21,7 +21,7 @@ namespace Algorithm.Chapter06.Search
             Console.WriteLine("[ CHAPTER 06 ]");
             Console.WriteLine("1. 순차탐색 ");
             Console.WriteLine("2. Binary Search ");
-            Console.WriteLine("3. Quick Sort ");
+            Console.WriteLine("3. Binary Search Tree ");
             Console.WriteLine("4. Insert Sort with Double LinkedList ");
             Console.WriteLine("5. 뒤로");
             Console.WriteLine("6. 종료");
