@@ -15,6 +15,26 @@ namespace Algorithm.Chapter06.Search
             public int intData;
         }
 
+        public void BinarySearchTreeProgress()
+        {
+            // 노드 생성
+            BinarySearchTreeNode objTree = createNode(123);
+            BinarySearchTreeNode objNode = null;
+
+            // 트리에 노드 추가
+            insertNode(ref objTree, createNode(22));
+            insertNode(ref objTree, createNode(9918));
+            insertNode(ref objTree, createNode(424));
+            insertNode(ref objTree, createNode(17));
+            insertNode(ref objTree, createNode(3));
+
+            insertNode(ref objTree, createNode(98));
+            insertNode(ref objTree, createNode(34));
+            insertNode(ref objTree, createNode(760));
+            insertNode(ref objTree, createNode(317));
+            insertNode(ref objTree, createNode(1));
+        }
+
         private BinarySearchTreeNode createNode(int intData)
         {
             BinarySearchTreeNode objNew = new BinarySearchTreeNode();
@@ -78,7 +98,7 @@ namespace Algorithm.Chapter06.Search
             }
         }
 
-        private void insertNode(ref BinarySearchTreeNode objTree, ref BinarySearchTreeNode objChild)
+        private void insertNode(ref BinarySearchTreeNode objTree, BinarySearchTreeNode objChild)
         {
             if(objTree.intData < objChild.intData)
             {
@@ -88,7 +108,7 @@ namespace Algorithm.Chapter06.Search
                 }
                 else
                 {
-                    insertNode(ref objTree.objRight, ref objChild);
+                    insertNode(ref objTree.objRight, objChild);
                 }
             }
             else if(objTree.intData > objChild.intData)
@@ -99,14 +119,79 @@ namespace Algorithm.Chapter06.Search
                 }
                 else
                 {
-                    insertNode(ref objTree.objLeft, ref objChild);
+                    insertNode(ref objTree.objLeft, objChild);
                 }
             }
         }
 
-        private BinarySearchTreeNode removeNode(ref BinarySearchTreeNode objTree, ref BinarySearchTreeNode objParent, int intTarget)
+        private BinarySearchTreeNode removeNode(ref BinarySearchTreeNode objTree, BinarySearchTreeNode objParent, int intTarget)
         {
+            BinarySearchTreeNode objRemoved = null;
 
+            if(objTree == null)
+            {
+                return null;
+            }
+
+            if(objTree.intData > intTarget)
+            {
+                objRemoved = removeNode(ref objTree.objLeft, objTree, intTarget);
+            }
+            else if(objTree.intData < intTarget)
+            {
+                objRemoved = removeNode(ref objTree.objRight, objTree, intTarget);
+            }
+            else
+            {
+                // 목표값을 찾은 경우 
+                objRemoved = objTree;
+
+                // 잎 노드인 경우 바로 삭제 
+                if(objTree.objLeft == null && objTree.objRight == null)
+                {
+                    if(objParent.objLeft == objTree)
+                    {
+                        objParent.objLeft = null;
+                    }
+                    else
+                    {
+                        objParent.objRight = null;
+                    }
+                }
+                else
+                {
+                    // 양쪽 자식이 다 있는 경우
+                    if(objTree.objLeft != null && objTree.objRight != null)
+                    {
+                        BinarySearchTreeNode objMinNode = searchMinNode(ref objTree.objRight);
+                        objRemoved = removeNode(ref objTree, null, objMinNode.intData);
+                        objTree.intData = objMinNode.intData;
+                    }
+                    else
+                    {
+                        BinarySearchTreeNode objTemp = null;
+                        if(objTree.objLeft != null)
+                        {
+                            objTemp = objTree.objLeft;
+                        }
+                        else
+                        {
+                            objTree = objTree.objRight;
+                        }
+
+                        if(objParent.objLeft == objTree)
+                        {
+                            objParent.objLeft = objTemp;
+                        }
+                        else
+                        {
+                            objParent.objRight = objTemp;
+                        }
+                    }
+                }
+            }
+
+            return objRemoved;
         }
     }
 }
