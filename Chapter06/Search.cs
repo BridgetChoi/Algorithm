@@ -22,7 +22,7 @@ namespace Algorithm.Chapter06.Search
             Console.WriteLine("1. 순차탐색 ");
             Console.WriteLine("2. Binary Search ");
             Console.WriteLine("3. Binary Search Tree ");
-            Console.WriteLine("4. Insert Sort with Double LinkedList ");
+            Console.WriteLine("4. Red Black Tree ");
             Console.WriteLine("5. 뒤로");
             Console.WriteLine("6. 종료");
             Console.WriteLine("----------------------------");
@@ -47,6 +47,9 @@ namespace Algorithm.Chapter06.Search
                     SearchIndex();
                     break;
                 case "3":
+                    Chapter06.Search.BinarySearchTree objBinarySearchTree = new Chapter06.Search.BinarySearchTree();
+                    objBinarySearchTree.BinarySearchTreeProgress();
+                    SearchIndex();
                     break;
                 case "4":
                     break;

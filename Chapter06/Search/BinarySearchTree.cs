@@ -33,6 +33,47 @@ namespace Algorithm.Chapter06.Search
             insertNode(ref objTree, createNode(760));
             insertNode(ref objTree, createNode(317));
             insertNode(ref objTree, createNode(1));
+
+            InorderPrintTree(objTree);
+            Console.WriteLine();
+            Console.WriteLine("removing 98 ... ");
+
+            BinarySearchTreeNode objRemove = removeNode(ref objTree, null, 98);
+            destroyNode(ref objRemove);
+
+            InorderPrintTree(objTree);
+            Console.WriteLine();
+            Console.WriteLine("Inserting 111 ... ");
+
+            insertNode(ref objTree, createNode(111));
+            InorderPrintTree(objTree);
+            Console.WriteLine();
+
+            string strKeep = "N";
+            Console.WriteLine();
+            while (!string.IsNullOrEmpty(strKeep))
+            {
+                Console.Write("Press Enter to return..");
+                strKeep = Console.ReadLine();
+            }
+        }
+
+        private void InorderPrintTree(BinarySearchTreeNode objTree)
+        {
+            if(objTree == null)
+            {
+                return;
+            }
+
+            // 왼쪽 하위 트리 출력 
+            InorderPrintTree(objTree.objLeft);
+
+            // 루트 노드 출력 
+            Console.Write(objTree.intData);
+            Console.Write("     ");
+
+            // 오른쪽 하위 트리 출력 
+            InorderPrintTree(objTree.objRight);
         }
 
         private BinarySearchTreeNode createNode(int intData)
